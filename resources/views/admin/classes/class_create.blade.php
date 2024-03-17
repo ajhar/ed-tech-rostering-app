@@ -14,9 +14,6 @@
                     <input type="text" name="name" class="form-control" id="input-name" required>
                     <div class="invalid-feedback" id="name-error"></div>
                 </div>
-                {{--<div class="alert alert-danger mb-0" role="alert">
-                    A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                </div>--}}
             </div>
             <div class="modal-footer d-flex justify-content-between">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

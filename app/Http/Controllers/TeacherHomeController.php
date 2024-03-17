@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\DataTables\StudentDataTable;
 use App\Enums\UserRoleEnum;
 use App\Http\Requests\UpdateStudentScoreRequest;
-use App\Models\Activity;
 use App\Models\StudentActivity;
 use App\Services\TeacherHomeService;
 use Illuminate\Support\Facades\Auth;
