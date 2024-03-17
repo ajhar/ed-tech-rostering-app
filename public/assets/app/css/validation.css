@@ -1,0 +1,7 @@
+.form-control:invalid {
+    background: none; /* Remove the background image */
+}
+
+.form-control:valid {
+    background: none; /* Remove the background image */
+}
