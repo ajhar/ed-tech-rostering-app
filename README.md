@@ -12,7 +12,7 @@
    php artisan serve
    ```
 
-Do not forget to create database and update the credentials in .env
+Do not forget to create database and update the credentials in .env file
 
 # API Endpoints
 
@@ -28,6 +28,12 @@ functionality.
 - **Parameters**:
     - `email` (string): User's email address.
     - `password` (string): User's password.
+- **Sample Payload**:
+  ```json
+  {
+    "email": "admin@mail.com",
+    "password": "admin",
+  }
 - **Returns**:
     - `token` (string): Bearer token for authenticated user.
 
@@ -36,7 +42,7 @@ functionality.
 ### Get Student List
 
 - **Route**: `GET /student-list`
-- **Description**: Endpoint to retrieve the list of students.
+- **Description**: Endpoint to retrieve the list of students belongs to teacher's class.
 - **Authorization**: Bearer token required. Example: `Bearer 1|0twZLtzHSZZ84ToGZ3RviopxJwOwVPof7AkxNgMV02c915dc`
 - **Returns**: List of student objects.
 
@@ -60,7 +66,7 @@ functionality.
 - **Route**: `GET /activity-list`
 - **Description**: Endpoint to retrieve the list of activities.
 - **Authorization**: Bearer token required. Example: `3|CENLL5d01KqL057PIB1uljBBLrkU8QxgazqFjFOw74072ccf`
-- **Returns**: List of activity objects.
+- **Returns**: List of activity objects belongs to authenticated student.
 
 ## Admin
 
@@ -149,7 +155,6 @@ functionality.
 - **Description**: Endpoint to delete a subject.
 - **Authorization**: Bearer token required. Example: `Bearer 4|sShblhsnuyzrOjbkqFHDCBRKDeJLqfIr83BzsPOdc4165725`
 - **Returns**: HTTP Code 204.
--
 
 ### Manage Classes
 
@@ -208,8 +213,8 @@ functionality.
 - **Description**: Endpoint to create a new teacher.
 - **Authorization**: Bearer token required. Example: `Bearer 4|sShblhsnuyzrOjbkqFHDCBRKDeJLqfIr83BzsPOdc4165725`
 - **Sample Payload**:
-```json
-{
+  ```json
+  {
     "name": "Teacher name",
     "email": "teacher@mail.com",
     "password": "mypassword",
@@ -223,22 +228,22 @@ functionality.
     "postl_code": "92126",
     "country_code": 12,
     "phone_number": "(858) 536-1200"
-}
-```
+  }
+  ```
 - **Returns**: Newly created teacher object.
 
 #### Update Teacher
 
 - **Route**: `PUT /teachers/{id}`
-- **Description**: Endpoint to update an existing subject.
+- **Description**: Endpoint to update an existing teacher.
 - **Authorization**: Bearer token required. Example: `Bearer 4|sShblhsnuyzrOjbkqFHDCBRKDeJLqfIr83BzsPOdc4165725`
 - **Sample Payload**: Similar to create teacher payload
-- **Returns**: Updated class object.
+- **Returns**: Updated teacher object.
 
 #### Delete Teacher
 
 - **Route**: `DELETE /teachers/{id}`
-- **Description**: Endpoint to delete a class.
+- **Description**: Endpoint to delete a teacher.
 - **Authorization**: Bearer token required. Example: `Bearer 4|sShblhsnuyzrOjbkqFHDCBRKDeJLqfIr83BzsPOdc4165725`
 - **Returns**: HTTP Code 204.
 
@@ -257,8 +262,8 @@ functionality.
 - **Description**: Endpoint to create a new student.
 - **Authorization**: Bearer token required. Example: `Bearer 4|sShblhsnuyzrOjbkqFHDCBRKDeJLqfIr83BzsPOdc4165725`
 - **Sample Payload**:
-```json
-{
+  ```json
+  {
     "employee_id": "EMP123",
     "name": "Student name",
     "email": "teacher@mail.com",
@@ -274,14 +279,14 @@ functionality.
         1,
         2
     ]
-}
-```
+  }
+  ```
 - **Returns**: Newly created student object.
 
 #### Update Student
 
 - **Route**: `PUT /student/{id}`
-- **Description**: Endpoint to update an existing subject.
+- **Description**: Endpoint to update an existing student.
 - **Authorization**: Bearer token required. Example: `Bearer 4|sShblhsnuyzrOjbkqFHDCBRKDeJLqfIr83BzsPOdc4165725`
 - **Sample Payload**: Similar to create student payload
 - **Returns**: Updated student object.
@@ -313,25 +318,22 @@ functionality.
 - **Route**: `PUT /profile`
 - **Description**: Endpoint to update the authenticated user's profile. Payload may change as per the user role
 - **Authorization**: Bearer token required. Example: `Bearer 4|sShblhsnuyzrOjbkqFHDCBRKDeJLqfIr83BzsPOdc4165725`
-- **Sample Payload For Teachers**:
+- **Sample Payload ( Teacher Profile)**:
 
-```json
-{
+ ```json
+ {
+    "employee_id": "EMP123",
     "name": "Teacher name",
     "email": "teacher@mail.com",
     "password": "mypassword",
-    "class_ids": [
-        1,
-        2
-    ],
     "street1": "9555",
     "street2": "Black Mountain Rd",
     "city": "San Diego",
-    "postl_code": "92126",
-    "country_code": 12,
+    "postal_code": "92126",
+    "country_id": 12,
     "phone_number": "(858) 536-1200"
-}
-```
+ }
+ ```
 - **Returns**: Updated profile details.
 
 ## Note
