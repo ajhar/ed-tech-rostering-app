@@ -1,12 +1,15 @@
 # Setup Application
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ajhar/ed-tech-rostering-app.git
    cd <project directory>
    composer install
    cp .env.example .env
    php artisan key:generate
    php artisan migrate --seed
+   npm install
+   npm run dev
+   php artisan serve
    ```
 
 Do not forget to create database and update the credentials in .env
