@@ -17,7 +17,9 @@ class StudentActivityDataTableResource extends JsonResource
         return [
             'subject' => $this->activity->subject->name,
             'activity' => $this->activity->name,
-            'grade' => $this->grade
+            'score' => $this->score,
+            'max_score' => $this->max_score,
+            'grade' => $this->activity->calculateGrade($this->score)
         ];
     }
 }

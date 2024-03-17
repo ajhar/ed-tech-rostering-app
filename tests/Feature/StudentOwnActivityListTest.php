@@ -45,7 +45,6 @@ class StudentOwnActivityListTest extends TestCase
         $response->assertJsonStructure(['data' => []]);
         $responseData = $response->json('data');
         $this->assertNotEmpty($responseData, 'No data returned');
-
         $response->assertJsonStructure([
             'data' => [
                 '*' => [
