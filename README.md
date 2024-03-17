@@ -7,8 +7,6 @@
    cp .env.example .env
    php artisan key:generate
    php artisan migrate --seed
-   npm install
-   npm run build
    php artisan serve
    ```
 
@@ -216,6 +214,7 @@ functionality.
   ```json
   {
     "name": "Teacher name",
+    "employee_id": "EMP123",
     "email": "teacher@mail.com",
     "password": "mypassword",
     "class_ids": [
@@ -225,8 +224,8 @@ functionality.
     "street1": "9555",
     "street2": "Black Mountain Rd",
     "city": "San Diego",
-    "postl_code": "92126",
-    "country_code": 12,
+    "postal_code": "92126",
+    "country_id": 12,
     "phone_number": "(858) 536-1200"
   }
   ```
@@ -264,16 +263,16 @@ functionality.
 - **Sample Payload**:
   ```json
   {
-    "employee_id": "EMP123",
+    "registration_number": "REG123",
     "name": "Student name",
-    "email": "teacher@mail.com",
+    "email": "student@mail.com",
     "password": "mypassword",
     "class_id": "1",
     "street1": "9555",
     "street2": "Black Mountain Rd",
     "city": "San Diego",
-    "postl_code": "92126",
-    "country_code": 12,
+    "postal_code": "92126",
+    "country_id": 12,
     "phone_number": "(858) 536-1200",
     "activity_ids": [
         1,

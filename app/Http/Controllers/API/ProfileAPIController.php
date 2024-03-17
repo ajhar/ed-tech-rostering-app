@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Http\Resources\ProfileResource;
 use App\Models\UserAttribute;
@@ -39,7 +38,7 @@ class ProfileAPIController extends BaseAPIController
             $user = $request->user()->load('userAttribute');
             return new ProfileResource($user);
         } catch (\Exception $ex) {
-            return $this->errorMessage([$ex->getMessage()], 422);
+            return $this->errorMessage([$ex->getMessage()]);
         }
     }
 }

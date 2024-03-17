@@ -22,6 +22,7 @@ class ProfileResource extends JsonResource
             'city' => $this->userAttribute->city ?? '',
             'postal_code' => $this->userAttribute->postal_code ?? '',
             'country_id' => $this->userAttribute->country_id ?? '',
+            'phone_number' => $this->userAttribute->phone_number
         ];
     }
 }

@@ -23,7 +23,8 @@ class TeacherResource extends JsonResource
             'street2' => $this->userAttribute->street2,
             'city' => $this->userAttribute->city,
             'postal_code' => $this->userAttribute->postal_code,
-            'country_code' => $this->userAttribute->country_id,
+            'country_id' => $this->userAttribute->country_id,
+            'phone_number' => $this->userAttribute->phone_number,
             'classes' => $this->formatActivities($this->classRooms),
         ];
     }
