@@ -1,10 +1,10 @@
 $(document).ready(function () {
     let columns = [
         {data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, sortable: false},
-        {data: 'employee_id'},
+        {data: 'employee_id', name: 'teachers.employee_id'},
         {data: 'user.name'},
         {data: 'user.email'},
-        {data: 'address', name: 'userAttribute.address'},
+        {data: 'address', name: 'address'},
         {data: 'class_rooms'},
         {data: 'actions', searchable: false, sortable: false},
     ];

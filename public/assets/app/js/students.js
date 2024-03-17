@@ -4,7 +4,7 @@ $(document).ready(function () {
         {data: 'registration_number'},
         {data: 'user.name'},
         {data: 'user.email'},
-        {data: 'address', name: 'userAttribute.address'},
+        {data: 'address', name: 'address'},
         {data: 'class_room.name'},
         {data: 'activities', name: 'studentActivities.name'},
         {data: 'actions', searchable: false, sortable: false},

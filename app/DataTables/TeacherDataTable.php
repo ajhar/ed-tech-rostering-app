@@ -15,6 +15,14 @@ class TeacherDataTable
             ->addColumn('address', function ($q) {
                 return $q->userAttribute->address;
             })
+            ->filterColumn('address', function($query, $keyword) {
+                $query->whereHas('userAttribute', function ($subquery) use ($keyword) {
+                    $subquery->where('street1', 'LIKE', "%{$keyword}%")
+                        ->orWhere('street2', 'LIKE', "%{$keyword}%")
+                        ->orWhere('city', 'LIKE', "%{$keyword}%")
+                        ->orWhere('postal_code', 'LIKE', "%{$keyword}%");
+                });
+            })
             ->addColumn('class_rooms', function ($q) {
                 $classRooms = $q->classRooms;
                 $c = '';

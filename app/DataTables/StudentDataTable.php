@@ -15,6 +15,14 @@ class StudentDataTable
             ->addColumn('address', function ($q) {
                 return $q->userAttribute->address;
             })
+            ->filterColumn('address', function($query, $keyword) {
+                $query->whereHas('userAttribute', function ($subquery) use ($keyword) {
+                    $subquery->where('street1', 'LIKE', "%{$keyword}%")
+                        ->orWhere('street2', 'LIKE', "%{$keyword}%")
+                        ->orWhere('city', 'LIKE', "%{$keyword}%")
+                        ->orWhere('postal_code', 'LIKE', "%{$keyword}%");
+                });
+            })
             ->addColumn('activities', function ($q) {
                 $studentActivities = $q->studentActivities;
                 return view('admin.students.student_score_card')
